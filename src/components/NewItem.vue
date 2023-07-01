@@ -20,6 +20,10 @@ import AppButton from "./AppButton.vue";
   justify-content: space-between;
   align-items: center;
   padding: 0 10px 0 25px;
+  @media only screen and (max-width: $medium-breackpoint) {
+    background-color: transparent;
+    height: 40px;
+  }
   .checked-icon {
     margin: 10px 20px;
   }

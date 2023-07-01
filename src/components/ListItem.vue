@@ -23,11 +23,24 @@ import AppInput from "./AppInput.vue";
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (max-width: $medium-breackpoint) {
+    height: 40px;
+  }
   .checked-icon {
     margin: 10px 20px;
+    @media only screen and (max-width: $medium-breackpoint) {
+      img {
+        width: 25px;
+      }
+    }
   }
   .close-icon {
     margin: 15px;
+    @media only screen and (max-width: $medium-breackpoint) {
+      img {
+        width: 15px;
+      }
+    }
   }
   .checked-icon:hover,
   .close-icon:hover {

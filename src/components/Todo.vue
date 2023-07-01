@@ -4,7 +4,7 @@ import { ref } from "vue";
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref([1, 2, 3, 4, 5]);
+const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 </script>
 
 <template>
@@ -28,6 +28,10 @@ const items = ref([1, 2, 3, 4, 5]);
     color: $dark-primary-text;
     margin: 0 10px 25px 10px;
     cursor: default;
+    @media only screen and (max-width: $medium-breackpoint) {
+      font-size: $font-size-primary-mobile;
+      margin: 0 10px;
+    }
   }
   .todo-list {
     background-color: $dark-background-2;
@@ -36,6 +40,12 @@ const items = ref([1, 2, 3, 4, 5]);
     height: calc(85vh - 180px);
     margin: 0 10px;
     padding: 25px 10px 25px 15px;
+    @media only screen and (max-width: $medium-breackpoint) {
+      background-color: transparent;
+      margin: 0;
+      padding: 20px 5px 0 10px;
+      height: calc(85vh - 60px);
+    }
 
     .items-list {
       display: flex;
@@ -44,12 +54,24 @@ const items = ref([1, 2, 3, 4, 5]);
       overflow-y: scroll;
       height: calc(100% - 80px);
       padding-right: 10px;
+      @media only screen and (max-width: $medium-breackpoint) {
+        gap: 10px;
+        height: calc(100% - 80px);
+      }
     }
     .add-item {
       margin-right: 15px;
       height: 80px;
       display: flex;
-      align-items: flex-end;
+      @media only screen and (max-width: $medium-breackpoint) {
+        background-color: $dark-background-2;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 65px;
+        align-items: center;
+      }
     }
   }
 }

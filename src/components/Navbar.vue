@@ -5,7 +5,9 @@
     <div class="logo-container">
       <img src="@/assets/todo-logo.svg" />
     </div>
-    <div class="color-mode"><img src="@/assets/sun.svg" /></div>
+    <div class="color-mode">
+      <img src="@/assets/sun.svg" />
+    </div>
   </div>
 </template>
 
@@ -34,6 +36,10 @@
     }
     &:hover {
       cursor: pointer;
+    }
+    @media only screen and (max-width: $medium-breackpoint) {
+      height: 45px;
+      width: 50px;
     }
   }
 }

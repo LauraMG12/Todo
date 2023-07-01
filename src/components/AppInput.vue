@@ -17,6 +17,9 @@
     &:focus {
       outline: none;
     }
+    @media only screen and (max-width: $medium-breackpoint) {
+      font-size: $font-size-secondary-mobile;
+    }
   }
 }
 </style>

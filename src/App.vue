@@ -35,6 +35,11 @@ p {
     width: 885px;
     height: calc(85vh - 60px);
     margin: 40px auto 20px;
+    @media only screen and (max-width: $medium-breackpoint) {
+      height: calc(90vh);
+      margin-bottom: 0;
+      width: auto;
+    }
   }
 
   #footer {
@@ -45,6 +50,9 @@ p {
       color: $dark-secondary-text;
       text-align: center;
       margin-top: 30px;
+    }
+    @media only screen and (max-width: $medium-breackpoint) {
+      display: none;
     }
   }
   ::-webkit-scrollbar {
