@@ -12,6 +12,16 @@ import Todo from "./components/Todo.vue";
 </template>
 
 <style lang="scss">
+@import "@/styles/_variables.scss";
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+p {
+  margin: 0;
+}
 #app {
   background-color: $dark-background-1;
   font-family: $font-family;
@@ -36,6 +46,24 @@ import Todo from "./components/Todo.vue";
       text-align: center;
       margin-top: 30px;
     }
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $dark-secondary-text;
+    border-radius: 6px;
+  }
+
+  ::-moz-selection {
+    color: $dark-primary-text;
+    background: $primary;
+  }
+
+  ::selection {
+    color: $dark-primary-text;
+    background: $primary;
   }
 }
 </style>
