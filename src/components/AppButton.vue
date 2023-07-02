@@ -18,7 +18,13 @@
     cursor: pointer;
   }
   .button-text {
-    color: $dark-primary-text;
+    color: var(--primary-text);
+    font-weight: 600;
+  }
+}
+#app[theme="light-mode"] {
+  .button-container {
+    background-color: $primary-lighter;
   }
 }
 </style>

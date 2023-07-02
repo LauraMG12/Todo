@@ -4,35 +4,34 @@ $primary-lighter: #c6afde;
 $primary-light: #a370d8;
 $primary: #8549bf;
 
-// app background
+// DARK MODE
 $dark-background-1: #2a2d38;
-$light-background-1: #fafaff;
-// main container background
 $dark-background-2: #2f353f;
-$light-background-2: #ffffff;
-// navbar container background
 $dark-background-3: #333741;
-$light-background-3: #f4f4f9;
-// items background
 $dark-background-4: #3f454f;
-$light-background-4: #f8f8f8;
-
 $dark-primary-text: #ffffff;
-$light-primary-text: #3a3b42;
-
 $dark-secondary-text: #a8a8a8;
+
+// LIGHT MODE
+$light-background-1: #fafaff;
+$light-background-2: #ffffff;
+$light-background-3: #f4f4f9;
+$light-background-4: #f8f8f8;
+$light-primary-text: #3a3b42;
 $light-secondary-text: #555555;
 
 /* FONTS */
 
+$font-family: "Inter", sans-serif;
+
+// DESKTOP
 $font-size-primary-desktop: 2.5rem;
 $font-size-secondary-desktop: 1.25rem;
 $font-size-small-desktop: 1rem;
 
+//MOBILE
 $font-size-primary-mobile: 2rem;
 $font-size-secondary-mobile: 1rem;
-
-$font-family: "Inter", sans-serif;
 
 /* BREACKPOINTS */
 $medium-breackpoint: 900px;

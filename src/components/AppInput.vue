@@ -11,7 +11,7 @@
   input {
     width: calc(100% - 25px);
     font-size: $font-size-secondary-desktop;
-    color: $dark-primary-text;
+    color: var(--primary-text);
     background-color: transparent;
     border: none;
     &:focus {

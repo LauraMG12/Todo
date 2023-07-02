@@ -23,7 +23,7 @@ p {
   margin: 0;
 }
 #app {
-  background-color: $dark-background-1;
+  background-color: var(--background-1);
   font-family: $font-family;
 
   #navbar {
@@ -47,7 +47,7 @@ p {
     height: 5vh;
     p {
       font-size: $font-size-small-desktop;
-      color: $dark-secondary-text;
+      color: var(--secondary-text);
       text-align: center;
       margin-top: 30px;
     }
@@ -60,18 +60,34 @@ p {
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $dark-secondary-text;
+    background: var(--secondary-text);
     border-radius: 6px;
   }
 
   ::-moz-selection {
-    color: $dark-primary-text;
+    color: var(--primary-text);
     background: $primary;
   }
 
   ::selection {
-    color: $dark-primary-text;
+    color: var(--primary-text);
     background: $primary;
+  }
+  &[theme="dark-mode"] {
+    --background-1: #{$dark-background-1};
+    --background-2: #{$dark-background-2};
+    --background-3: #{$dark-background-3};
+    --background-4: #{$dark-background-4};
+    --primary-text: #{$dark-primary-text};
+    --secondary-text: #{$dark-secondary-text};
+  }
+  &[theme="light-mode"] {
+    --background-1: #{$light-background-1};
+    --background-2: #{$light-background-2};
+    --background-3: #{$light-background-3};
+    --background-4: #{$light-background-4};
+    --primary-text: #{$light-primary-text};
+    --secondary-text: #{$light-secondary-text};
   }
 }
 </style>

@@ -25,7 +25,7 @@ const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 .todo-container {
   .title {
     font-size: $font-size-primary-desktop;
-    color: $dark-primary-text;
+    color: var(--primary-text);
     margin: 0 10px 25px 10px;
     cursor: default;
     @media only screen and (max-width: $medium-breackpoint) {
@@ -34,7 +34,7 @@ const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
     }
   }
   .todo-list {
-    background-color: $dark-background-2;
+    background-color: var(--background-2);
     border-radius: 20px;
     width: auto;
     height: calc(85vh - 180px);
@@ -63,8 +63,9 @@ const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
       margin-right: 15px;
       height: 80px;
       display: flex;
+      align-items: flex-end;
       @media only screen and (max-width: $medium-breackpoint) {
-        background-color: $dark-background-2;
+        background-color: var(--background-2);
         position: absolute;
         bottom: 0;
         left: 0;

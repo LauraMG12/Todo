@@ -1,11 +1,21 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useDark, useToggle } from "@vueuse/core";
+
+const isDark = useDark({
+  selector: "#app",
+  attribute: "theme",
+  valueDark: "dark-mode",
+  valueLight: "light-mode",
+});
+const toggleDark = useToggle(isDark);
+</script>
 
 <template>
   <div class="navbar-container">
     <div class="logo-container">
       <img src="@/assets/todo-logo.svg" />
     </div>
-    <div class="color-mode">
+    <div class="color-mode" @click="toggleDark()">
       <img src="@/assets/sun.svg" />
     </div>
   </div>
@@ -26,7 +36,7 @@
   .color-mode {
     height: 50px;
     border-radius: 20px;
-    background-color: $dark-background-3;
+    background-color: var(--background-3);
     display: flex;
     align-items: center;
     justify-content: center;

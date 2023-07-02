@@ -16,7 +16,7 @@ import AppInput from "./AppInput.vue";
 
 <style scoped lang="scss">
 .item-container {
-  background-color: $dark-background-4;
+  background-color: var(--background-4);
   height: 50px;
   width: 100%;
   border-radius: 10px;
