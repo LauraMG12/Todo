@@ -1,6 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+interface AppButtonEmits {
+  (event: "add-item"): void;
+}
+const emit = defineEmits<AppButtonEmits>();
+</script>
 <template>
-  <div class="button-container">
+  <div class="button-container" @click="emit('add-item')">
     <p class="button-text">Add</p>
   </div>
 </template>

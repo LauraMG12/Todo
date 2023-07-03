@@ -4,7 +4,14 @@ import { ref } from "vue";
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+const items = ref<string[]>(["hello"]);
+
+function addItem(inputText: string): void {
+  items.value.push(inputText);
+}
+function removeItem(index: number): void {
+  items.value.splice(index, 1);
+}
 </script>
 
 <template>
@@ -12,10 +19,14 @@ const items = ref([1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
     <div class="title">Title</div>
     <div class="todo-list">
       <div class="items-list">
-        <ListItem v-for="item in items" :key="item" />
+        <ListItem
+          v-for="(item, index) in items"
+          :key="item"
+          @remove="removeItem(index)"
+        />
       </div>
       <div class="add-item">
-        <NewItem />
+        <NewItem @add-item="addItem" />
       </div>
     </div>
   </div>

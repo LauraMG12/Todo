@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import AppInput from "./AppInput.vue";
 import AppButton from "./AppButton.vue";
+import { ref } from "vue";
+
+interface AppButtonEmits {
+  (event: "add-item", value: string): void;
+}
+const emit = defineEmits<AppButtonEmits>();
+const itemText = ref<string>("");
+
+function setItemText(inputText: string): void {
+  itemText.value = inputText;
+}
 </script>
 
 <template>
   <div class="item-container">
-    <AppInput />
-    <AppButton />
+    <AppInput @input-changed="setItemText" />
+    <AppButton @add-item="emit('add-item', itemText)" />
   </div>
 </template>
 

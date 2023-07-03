@@ -45,6 +45,7 @@ p {
   #footer {
     width: 100vw;
     height: 5vh;
+    cursor: default;
     p {
       font-size: $font-size-small-desktop;
       color: var(--secondary-text);
@@ -68,10 +69,17 @@ p {
     color: var(--primary-text);
     background: $primary;
   }
-
-  ::selection {
-    color: var(--primary-text);
-    background: $primary;
+  &[theme="dark-mode"] {
+    ::selection {
+      color: var(--primary-text);
+      background: $primary;
+    }
+  }
+  &[theme="light-mode"] {
+    ::selection {
+      color: var(--primary-text);
+      background: $primary-lighter;
+    }
   }
   &[theme="dark-mode"] {
     --background-1: #{$dark-background-1};
