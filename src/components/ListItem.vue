@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import AppInput from "./AppInput.vue";
-
+interface ListItemProps {
+  value: string;
+}
 interface ListItemEmits {
   (event: "remove"): void;
 }
-
+defineProps<ListItemProps>();
 const emit = defineEmits<ListItemEmits>();
 
 const checked = ref<boolean>(false);
@@ -20,7 +22,7 @@ function toggleChecked(): void {
       <img v-if="checked" src="@/assets/checked.svg" />
       <img v-else src="@/assets/unchecked.svg" />
     </div>
-    <AppInput :checked="checked" />
+    <AppInput :checked="checked" :value="value" />
     <div class="remove-icon" @click="emit('remove')">
       <img src="@/assets/cross.svg" />
     </div>

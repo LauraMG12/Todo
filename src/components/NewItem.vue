@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppInput from "./AppInput.vue";
 import AppButton from "./AppButton.vue";
 import { ref } from "vue";
 
@@ -9,15 +8,18 @@ interface AppButtonEmits {
 const emit = defineEmits<AppButtonEmits>();
 const itemText = ref<string>("");
 
-function setItemText(inputText: string): void {
-  itemText.value = inputText;
+function addItem(): void {
+  emit("add-item", itemText.value);
+  itemText.value = "";
 }
 </script>
 
 <template>
   <div class="item-container">
-    <AppInput @input-changed="setItemText" />
-    <AppButton @add-item="emit('add-item', itemText)" />
+    <div class="input-text" @keydown.enter="addItem">
+      <input type="text" placeholder="Type here" v-model="itemText" />
+    </div>
+    <AppButton :disabled="itemText === ''" @add-item="addItem" />
   </div>
 </template>
 
@@ -40,6 +42,27 @@ function setItemText(inputText: string): void {
   }
   .close-icon {
     margin: 15px;
+  }
+  //FIXME: duplicated in <AppInput/>
+  .input-text {
+    width: 100%;
+    input {
+      width: calc(100% - 25px);
+      font-size: $font-size-secondary-desktop;
+      color: var(--primary-text);
+      background-color: transparent;
+      border: none;
+      &.checked {
+        color: var(--secondary-text);
+        text-decoration: line-through;
+      }
+      &:focus {
+        outline: none;
+      }
+      @media only screen and (max-width: $medium-breackpoint) {
+        font-size: $font-size-secondary-mobile;
+      }
+    }
   }
 }
 </style>

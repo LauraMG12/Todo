@@ -2,15 +2,17 @@
 import { ref, watch } from "vue";
 
 interface AppInputProps {
-  checked?: boolean;
+  checked: boolean;
+  value: string;
 }
 interface AppInputEmits {
   (event: "input-changed", value: string): void;
+  (event: "add-item"): void;
 }
 const props = withDefaults(defineProps<AppInputProps>(), { checked: false });
 const emit = defineEmits<AppInputEmits>();
 
-const itemText = ref<string>("");
+const itemText = ref<string>(props.value ?? "");
 
 watch(itemText, () => {
   emit("input-changed", itemText.value);
@@ -18,13 +20,8 @@ watch(itemText, () => {
 </script>
 
 <template>
-  <div class="input-text">
-    <input
-      :class="{ checked: props.checked }"
-      type="text"
-      placeholder="Type text"
-      v-model="itemText"
-    />
+  <div class="input-text" @keydown.enter="emit('add-item')">
+    <input :class="{ checked: props.checked }" type="text" v-model="itemText" />
   </div>
 </template>
 

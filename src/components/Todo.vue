@@ -22,6 +22,7 @@ function removeItem(index: number): void {
         <ListItem
           v-for="(item, index) in items"
           :key="item"
+          :value="item"
           @remove="removeItem(index)"
         />
       </div>
