@@ -4,7 +4,7 @@ import { ref } from "vue";
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref<string[]>(["hello", "world"]);
+const items = ref<string[]>(["Hello", "world!"]);
 
 function addItem(inputText: string): void {
   items.value.push(inputText);
@@ -17,7 +17,9 @@ function removeItem(index: number): void {
 
 <template>
   <div class="todo-container">
-    <div class="title">Title</div>
+    <div class="title">
+      <input type="text" value="Title" />
+    </div>
     <div class="todo-list">
       <div class="items-list">
         <TransitionGroup name="listItem">
@@ -39,13 +41,21 @@ function removeItem(index: number): void {
 <style scoped lang="scss">
 .todo-container {
   .title {
-    font-size: $font-size-primary-desktop;
-    color: var(--primary-text);
-    margin: 0 10px 25px 10px;
     cursor: default;
-    @media only screen and (max-width: $medium-breackpoint) {
-      font-size: $font-size-primary-mobile;
-      margin: 0 10px;
+    & input {
+      background-color: transparent;
+      border: none;
+      font-size: $font-size-primary-desktop;
+      color: var(--primary-text);
+      margin: 0 10px 25px 10px;
+      text-overflow: ellipsis;
+      @media only screen and (max-width: $medium-breackpoint) {
+        font-size: $font-size-primary-mobile;
+        margin: 0 10px;
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
   .todo-list {

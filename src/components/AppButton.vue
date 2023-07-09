@@ -22,6 +22,7 @@ const emit = defineEmits<AppButtonEmits>();
 <style scoped lang="scss">
 button {
   all: unset;
+  transition: all 0.2s ease;
 }
 .button-container {
   width: 100px;
