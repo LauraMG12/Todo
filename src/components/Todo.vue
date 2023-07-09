@@ -91,11 +91,19 @@ function removeItem(index: number): void {
     }
   }
 }
-.listItem-enter-active {
+.listItem-enter-active,
+.listItem-leave-active {
   transition: all 0.5s ease;
 }
 .listItem-enter-from {
   opacity: 0;
   transform: translateY(30px);
+}
+.listItem-leave-to {
+  height: 100%;
+}
+.listItem-leave-to {
+  opacity: 0;
+  height: 0;
 }
 </style>
