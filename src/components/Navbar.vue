@@ -16,7 +16,8 @@ const toggleDark = useToggle(isDark);
       <img src="@/assets/todo-logo.svg" />
     </div>
     <div class="color-mode" @click="toggleDark()">
-      <img src="@/assets/sun.svg" />
+      <img v-if="isDark" src="@/assets/sun.svg" />
+      <img v-else src="@/assets/moon.svg" />
     </div>
   </div>
 </template>

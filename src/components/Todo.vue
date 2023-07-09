@@ -4,10 +4,11 @@ import { ref } from "vue";
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref<string[]>(["hello"]);
+const items = ref<string[]>(["hello", "world"]);
 
 function addItem(inputText: string): void {
   items.value.push(inputText);
+  //TODO: keep items-list scroll position to bottom
 }
 function removeItem(index: number): void {
   items.value.splice(index, 1);
@@ -19,12 +20,14 @@ function removeItem(index: number): void {
     <div class="title">Title</div>
     <div class="todo-list">
       <div class="items-list">
-        <ListItem
-          v-for="(item, index) in items"
-          :key="item"
-          :value="item"
-          @remove="removeItem(index)"
-        />
+        <TransitionGroup name="listItem">
+          <ListItem
+            v-for="(item, index) in items"
+            :key="item"
+            :value="item"
+            @remove="removeItem(index)"
+          />
+        </TransitionGroup>
       </div>
       <div class="add-item">
         <NewItem @add-item="addItem" />
@@ -87,5 +90,12 @@ function removeItem(index: number): void {
       }
     }
   }
+}
+.listItem-enter-active {
+  transition: all 0.5s ease;
+}
+.listItem-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>

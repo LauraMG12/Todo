@@ -32,13 +32,12 @@ p {
   }
 
   #todo {
-    width: 885px;
+    max-width: 885px;
     height: calc(85vh - 60px);
     margin: 40px auto 20px;
     @media only screen and (max-width: $medium-breackpoint) {
       height: calc(90vh);
       margin-bottom: 0;
-      width: auto;
     }
   }
 

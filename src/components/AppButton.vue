@@ -5,7 +5,7 @@ interface AppButtonProps {
 interface AppButtonEmits {
   (event: "add-item"): void;
 }
-const props = defineProps<AppButtonProps>();
+defineProps<AppButtonProps>();
 const emit = defineEmits<AppButtonEmits>();
 </script>
 <template>
