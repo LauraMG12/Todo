@@ -4,7 +4,14 @@ import { ref } from "vue";
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref<string[]>(["Hello", "world!"]);
+const items = ref<string[]>([
+  "Hello",
+  "world!",
+  "hi",
+  "hey",
+  "hola",
+  "bonjour",
+]);
 
 function addItem(inputText: string): void {
   items.value.push(inputText);
@@ -21,16 +28,14 @@ function removeItem(index: number): void {
       <input type="text" value="Title" />
     </div>
     <div class="todo-list">
-      <div class="items-list">
-        <TransitionGroup name="listItem">
-          <ListItem
-            v-for="(item, index) in items"
-            :key="item"
-            :value="item"
-            @remove="removeItem(index)"
-          />
-        </TransitionGroup>
-      </div>
+      <TransitionGroup name="listItem" tag="div" class="items-list">
+        <ListItem
+          v-for="(item, index) in items"
+          :key="item"
+          :value="item"
+          @remove="removeItem(index)"
+        />
+      </TransitionGroup>
       <div class="add-item">
         <NewItem @add-item="addItem" />
       </div>
@@ -79,6 +84,7 @@ function removeItem(index: number): void {
       overflow-y: scroll;
       height: calc(100% - 80px);
       padding-right: 10px;
+      position: relative;
       @media only screen and (max-width: $medium-breackpoint) {
         gap: 10px;
         height: calc(100% - 80px);
@@ -101,16 +107,14 @@ function removeItem(index: number): void {
     }
   }
 }
+.listItem-move,
 .listItem-enter-active,
 .listItem-leave-active {
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in;
 }
 .listItem-enter-from {
   opacity: 0;
   transform: translateY(30px);
-}
-.listItem-leave-to {
-  height: 100%;
 }
 .listItem-leave-to {
   opacity: 0;

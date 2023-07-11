@@ -43,6 +43,7 @@ function toggleChecked(): void {
   }
   .checked-icon {
     margin: 10px 20px;
+    user-select: none;
     @media only screen and (max-width: $medium-breackpoint) {
       img {
         width: 25px;
@@ -51,6 +52,7 @@ function toggleChecked(): void {
   }
   .remove-icon {
     margin: 15px;
+    user-select: none;
     @media only screen and (max-width: $medium-breackpoint) {
       img {
         width: 15px;

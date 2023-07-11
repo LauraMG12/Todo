@@ -32,6 +32,7 @@ const toggleDark = useToggle(isDark);
   .logo-container,
   .color-mode {
     margin: 0 20px;
+    user-select: none;
   }
 
   .color-mode {

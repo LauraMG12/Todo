@@ -45,6 +45,7 @@ button {
   }
   .button-text {
     font-weight: 600;
+    user-select: none;
   }
 }
 #app[theme="light-mode"] {
