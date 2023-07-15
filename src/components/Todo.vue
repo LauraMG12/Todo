@@ -1,17 +1,10 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { ref } from "vue";
 
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
 
-const items = ref<string[]>([
-  "Hello",
-  "world!",
-  "hi",
-  "hey",
-  "hola",
-  "bonjour",
-]);
+const items = ref<string[]>(["Hello", "world!"]);
 
 function addItem(inputText: string): void {
   items.value.push(inputText);
