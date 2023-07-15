@@ -9,6 +9,9 @@ const emit = defineEmits<AppButtonEmits>();
 const itemText = ref<string>("");
 
 function addItem(): void {
+  if (itemText.value === "") {
+    return;
+  }
   emit("add-item", itemText.value);
   itemText.value = "";
 }
@@ -25,7 +28,7 @@ function addItem(): void {
 
 <style scoped lang="scss">
 .item-container {
-  background-color: var(--background-4);
+  background-color: $background-4;
   height: 50px;
   width: 100%;
   border-radius: 10px;
@@ -43,17 +46,16 @@ function addItem(): void {
   .close-icon {
     margin: 15px;
   }
-  //FIXME: duplicated in <AppInput/>
   .input-text {
     width: 100%;
     input {
       width: calc(100% - 25px);
       font-size: $font-size-secondary-desktop;
-      color: var(--primary-text);
+      color: $primary-text;
       background-color: transparent;
       border: none;
       &.checked {
-        color: var(--secondary-text);
+        color: $secondary-text;
         text-decoration: line-through;
       }
       &:focus {

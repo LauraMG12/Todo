@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 
 import ListItem from "./ListItem.vue";
 import NewItem from "./NewItem.vue";
@@ -15,7 +15,6 @@ const items = ref<string[]>([
 
 function addItem(inputText: string): void {
   items.value.push(inputText);
-  //TODO: keep items-list scroll position to bottom
 }
 function removeItem(index: number): void {
   items.value.splice(index, 1);
@@ -28,7 +27,12 @@ function removeItem(index: number): void {
       <input type="text" value="Title" />
     </div>
     <div class="todo-list">
-      <TransitionGroup name="listItem" tag="div" class="items-list">
+      <TransitionGroup
+        name="listItem"
+        tag="div"
+        class="items-list"
+        ref="itemsList"
+      >
         <ListItem
           v-for="(item, index) in items"
           :key="item"
@@ -51,7 +55,7 @@ function removeItem(index: number): void {
       background-color: transparent;
       border: none;
       font-size: $font-size-primary-desktop;
-      color: var(--primary-text);
+      color: $primary-text;
       margin: 0 10px 25px 10px;
       text-overflow: ellipsis;
       @media only screen and (max-width: $medium-breackpoint) {
@@ -64,10 +68,10 @@ function removeItem(index: number): void {
     }
   }
   .todo-list {
-    background-color: var(--background-2);
+    background-color: $background-2;
     border-radius: 20px;
     width: auto;
-    height: calc(85vh - 180px);
+    height: calc(90vh - 180px);
     margin: 0 10px;
     padding: 25px 10px 25px 15px;
     @media only screen and (max-width: $medium-breackpoint) {
@@ -96,7 +100,7 @@ function removeItem(index: number): void {
       display: flex;
       align-items: flex-end;
       @media only screen and (max-width: $medium-breackpoint) {
-        background-color: var(--background-2);
+        background-color: $background-2;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -107,17 +111,14 @@ function removeItem(index: number): void {
     }
   }
 }
-.listItem-move,
-.listItem-enter-active,
-.listItem-leave-active {
-  transition: all 0.5s ease-in;
-}
-.listItem-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.listItem-leave-to {
-  opacity: 0;
-  height: 0;
-}
+// .listItem-move,
+// .listItem-enter-active,
+// .listItem-leave-active {
+//   transition: all 0.5s ease-in;
+// }
+// .listItem-enter-from,
+// .listItem-leave-to {
+//   opacity: 0;
+//   height: 0;
+// }
 </style>

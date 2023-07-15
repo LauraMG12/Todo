@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import Navbar from "./components/Navbar.vue";
 import Todo from "./components/Todo.vue";
 </script>
 
 <template id="app">
-  <Navbar id="navbar" />
+  <!-- <Navbar id="navbar" /> -->
   <Todo id="todo" />
   <div id="footer">
     <p>@ 2023 Laura Mañogil González</p>
@@ -23,7 +22,7 @@ p {
   margin: 0;
 }
 #app {
-  background-color: var(--background-1);
+  background-color: $background-1;
   font-family: $font-family;
 
   #navbar {
@@ -33,8 +32,9 @@ p {
 
   #todo {
     max-width: 885px;
-    height: calc(85vh - 60px);
-    margin: 40px auto 20px;
+    height: calc(95vh - 80px);
+    margin: 0 auto 20px;
+    padding-top: 60px;
     @media only screen and (max-width: $medium-breackpoint) {
       height: calc(90vh);
       margin-bottom: 0;
@@ -47,7 +47,7 @@ p {
     cursor: default;
     p {
       font-size: $font-size-small-desktop;
-      color: var(--secondary-text);
+      color: $secondary-text;
       text-align: center;
       margin-top: 30px;
     }
@@ -55,46 +55,22 @@ p {
       display: none;
     }
   }
+  /* Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
   }
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary-text);
+    background: $secondary-text;
     border-radius: 6px;
   }
-
+  /* Selection */
   ::-moz-selection {
-    color: var(--primary-text);
-    background: $primary;
+    color: $primary-text;
+    background-color: $primary;
   }
-  &[theme="dark-mode"] {
-    ::selection {
-      color: var(--primary-text);
-      background: $primary;
-    }
-  }
-  &[theme="light-mode"] {
-    ::selection {
-      color: var(--primary-text);
-      background: $primary-lighter;
-    }
-  }
-  &[theme="dark-mode"] {
-    --background-1: #{$dark-background-1};
-    --background-2: #{$dark-background-2};
-    --background-3: #{$dark-background-3};
-    --background-4: #{$dark-background-4};
-    --primary-text: #{$dark-primary-text};
-    --secondary-text: #{$dark-secondary-text};
-  }
-  &[theme="light-mode"] {
-    --background-1: #{$light-background-1};
-    --background-2: #{$light-background-2};
-    --background-3: #{$light-background-3};
-    --background-4: #{$light-background-4};
-    --primary-text: #{$light-primary-text};
-    --secondary-text: #{$light-secondary-text};
+  ::selection {
+    color: $primary-text;
+    background-color: $primary;
   }
 }
 </style>

@@ -31,11 +31,11 @@ watch(itemText, () => {
   input {
     width: calc(100% - 25px);
     font-size: $font-size-secondary-desktop;
-    color: var(--primary-text);
+    color: $primary-text;
     background-color: transparent;
     border: none;
     &.checked {
-      color: var(--secondary-text);
+      color: $secondary-text;
       text-decoration: line-through;
     }
     &:focus {
