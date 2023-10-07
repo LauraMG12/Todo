@@ -6,7 +6,7 @@ import Todo from "./components/Todo.vue";
   <!-- <Navbar id="navbar" /> -->
   <Todo id="todo" />
   <div id="footer">
-    <p>@ 2023 Laura Mañogil González</p>
+    <p>@ <span class="highlight">Laura Mañogil González</span> 2023</p>
   </div>
 </template>
 
@@ -53,6 +53,9 @@ p {
     }
     @media only screen and (max-width: $medium-breackpoint) {
       display: none;
+    }
+    .highlight {
+      color: $primary;
     }
   }
   /* Scrollbar */
